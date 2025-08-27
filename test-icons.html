@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste de Ícones</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <h1>Teste de Ícones</h1>
+    <p>Verifique se os ícones aparecem na aba do navegador e no DevTools.</p>
+    
+    <h2>Ícones disponíveis:</h2>
+    <ul>
+        <li>Favicon PNG: <img src="favicon.png" alt="Favicon PNG" width="32" height="32"></li>
+        <li>Favicon SVG: <img src="favicon.svg" alt="Favicon SVG" width="32" height="32"></li>
+        <li>Ícone 192: <img src="icons/Icon-192.png" alt="Ícone 192" width="64" height="64"></li>
+        <li>Ícone 512: <img src="icons/Icon-512.png" alt="Ícone 512" width="64" height="64"></li>
+    </ul>
+    
+    <h2>Manifest:</h2>
+    <pre id="manifest-content"></pre>
+    
+    <script>
+        // Carregar e mostrar o manifest
+        fetch('manifest.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('manifest-content').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('manifest-content').textContent = 'Erro ao carregar manifest: ' + error;
+            });
+    </script>
+</body>
+</html>
